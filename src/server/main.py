@@ -5,7 +5,7 @@ load_dotenv(find_dotenv())
 # TODO: Move to proper place
 import logging
 logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                     level=logging.DEBUG)
+                     level=logging.INFO)
 
 from telegram.ext import Updater
 

@@ -13,9 +13,10 @@ def log_expense(update: Bot, context: CallbackContext):
     data = context.match.groupdict()
     amount = data["amount"]
     tag = data["tag"]
-    now = datetime.now()
+    timestamp = datetime.now()
     comment = data.get("comment")
-    logging.debug(f"Got {amount} {tag} {now} {comment}.")
+
+    logging.debug(f"Got {amount} {tag} {timestamp} {comment}.")
     context.bot.send_message(
         chat_id=update.message.chat_id, 
         text=f"Roger that.",
