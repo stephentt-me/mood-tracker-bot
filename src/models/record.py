@@ -23,3 +23,6 @@ class Record(Base):
     def __init__(self, **kwargs):
         self.id = uuid.uuid4()
         super(Record, self).__init__(**kwargs)
+
+    def __repr__(self):
+        return f"{self.amount} {self.tag} at {self.timestamp}"

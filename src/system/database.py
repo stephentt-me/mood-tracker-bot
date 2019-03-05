@@ -10,8 +10,9 @@ def session_scope(func):
         session = Session()
         try:
             func(update, context, session)
-        except (SQLAlchemyError, DBAPIError):
+        except (SQLAlchemyError, DBAPIError) as e:
             session.rollback()
+            raise e
         session.close()
         return
     return inner

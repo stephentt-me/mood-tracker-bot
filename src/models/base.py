@@ -1,3 +1,6 @@
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv(), verbose=True)
+
 import os
 
 from sqlalchemy import create_engine
@@ -5,7 +8,7 @@ from sqlalchemy.orm import Query, scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 
-engine = create_engine(os.getenv("SQLALCHEMY_DATABASE_URI"))
+engine = create_engine(os.getenv("SQLALCHEMY_DATABASE_URI"), echo=True)
 
 class GeneralQuery(Query):
     def get_by_id(self, id):

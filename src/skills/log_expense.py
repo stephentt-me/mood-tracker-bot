@@ -22,8 +22,8 @@ def log_expense(update: Update, context: CallbackContext, session):
         amount = float(data["amount"][:-1]) * 1_000_000
     else:
         amount = float(data["amount"])
-    tag = data["tag"]
     timestamp = datetime.now()  # XXX
+    tag = data["tag"]
     note = data.get("note")
 
     logging.debug(f"Got {amount} {tag} {timestamp} {note}.")
@@ -41,7 +41,7 @@ def log_expense(update: Update, context: CallbackContext, session):
         chat_id=update.message.chat_id,
         text=f"👌",
         disable_notification=True,
-        # reply_to_message_id=update.message.message_id,
+        # reply_to_message_id=update.message.message_id,  # seem redundant, considering
     )
 
 log_expense_handler = MessageHandler(Filters.regex(MESSAGE_PATTERN), log_expense)
