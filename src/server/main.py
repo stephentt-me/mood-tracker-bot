@@ -19,4 +19,5 @@ def create_app():
 
 if __name__ == "__main__":
     app = create_app()
+    print("App started!")
     app.start_polling()
