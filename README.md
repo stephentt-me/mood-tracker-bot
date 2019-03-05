@@ -2,10 +2,6 @@
 
 A Bot helper keep track your expense, visualize and keep your personal finance undercontrol.
 
-## Prerequisites
-
-* Python
-
 ## Usage
 
 * Clone this repo
@@ -24,4 +20,13 @@ A Bot helper keep track your expense, visualize and keep your personal finance u
 ### Techstack
 
 * Python 3.7
+* SQLAlchemy
+* Alembic
 * Postgres
+
+### Commands
+
+Using: `./make.sh`
+
+* `run`: start project
+* `migrate`: miration tasks
