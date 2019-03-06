@@ -1,32 +1,35 @@
 # Personal Finance Bot
 
-A Bot helper keep track your expense, visualize and keep your personal finance undercontrol.
+A Telegram bot help you keep track your expense, budgets, visualize your wallet and keep your personal finance under control. :moneybag:
+
+**This project is under heavy develope! Not available for enduser.**
 
 ## Usage
 
 * Clone this repo
+* WIP
 
-## Message Handle
+## Messages
 
-* `/ping`
-* `<money amount> <category> [<timestamp>] <note...>`
-    * `<money amount>`: Can be `20k`, `20.5k`, `20500` , `20.500` (using `-` or `+` to define it's a income or expense, parse as expense if ommit)
-    * `category`: A single word
-    * `<timestamp>`: Can be `@1d`, `@2d`
-    * `<note...>`: All words after is a note
+* `/ping`: Check your bot status.
+* `/report`: Get a report of your personal finance.
+* Add a expense to keep track. WIP doc.
 
 ## Developement
 
-### Techstack
+### Stack
 
 * Python 3.7
-* SQLAlchemy
-* Alembic
 * Postgres
+* SQLAlchemy, Alembic
+* `python-bot-framework`
+* `pandas`, `matplotlib`
 
 ### Commands
 
-Using: `./make.sh`
+Usage: `./make.sh <command> [<subcommand>]`
 
 * `run`: start project
 * `migrate`: miration tasks
+    * `gen`: Auto generate migration
+    * `upgrade`: Upgrade head migration
