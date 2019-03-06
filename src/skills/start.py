@@ -20,4 +20,4 @@ def start(update: Update, context: CallbackContext, session):
             session.add(user)
             session.commit()
 
-start_hanlder = CommandHandler("start", start)
+start_handler = CommandHandler("start", start)
