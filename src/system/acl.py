@@ -5,6 +5,8 @@ import logging
 from telegram.bot import Bot
 from telegram.ext import CallbackContext
 
+from src.domains.user import get_or_register_user
+
 def restrict_admin(func):
     @wraps(func)
     def inner(update: Bot, context: CallbackContext, *args, **kwargs):
@@ -18,5 +20,7 @@ def restrict_admin(func):
 def must_be_user(func):
     @wraps(func)
     def inner(update: Bot, context: CallbackContext, *args, **kwargs):
+        user = update.effective_user
+        get_or_register_user(user)
         return func(update, context, *args, **kwargs)
     return inner
