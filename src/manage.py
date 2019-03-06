@@ -3,25 +3,15 @@ load_dotenv(find_dotenv(), verbose=True)
 
 import click
 
-from src.models import *
-from src.models.base import Base
-
 @click.group()
 def cli():
     pass
 
 @click.command()
-def initdb():
-    click.echo('Initialized the database')
-    Base.metadata.create_all()
+def seed_sample_data():
+    click.echo('Seed sample data.')
 
-@click.command()
-def dropdb():
-    click.echo('Dropped the database')
-    Base.metadata.drop_all()
-
-cli.add_command(initdb)
-cli.add_command(dropdb)
+cli.add_command(seed_sample_data)
 
 if __name__ == "__main__":
     cli()
