@@ -1,5 +1,5 @@
 import logging
-from datetime import datetime, timedelta
+from datetime import date, timedelta
 
 from telegram import Update
 from telegram.ext import CallbackContext
@@ -27,7 +27,8 @@ def log_expense(update: Update, context: CallbackContext, session):
     else:
         amount = float(data["amount"])
 
-    timestamp = datetime.now()
+    # Get today as the log expense timestamp, move back n day ago if present @n
+    timestamp = date.today()
     if data.get("time"):
         day = int(data["time"].strip()[1:])
         timestamp -= timedelta(days=day)

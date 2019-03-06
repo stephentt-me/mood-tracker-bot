@@ -1,7 +1,7 @@
 import datetime
 import uuid
 
-from sqlalchemy import Column, Integer, DateTime, String, ForeignKey
+from sqlalchemy import Column, Integer, Date, String, ForeignKey, DateTime
 
 from src.models.base import Base
 from src.system.database_uuid import UUID
@@ -15,7 +15,7 @@ class Record(Base):
 
     amount = Column(Integer, nullable=False)
     tag = Column(String, nullable=False)
-    timestamp = Column(DateTime, nullable=False)
+    timestamp = Column(Date, nullable=False)
     note = Column(String)
 
     created_at = Column(DateTime, default=datetime.datetime.now, nullable=False)
