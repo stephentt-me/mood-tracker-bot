@@ -13,6 +13,7 @@ sqlalchemy = "^1.2"
 click = "^7.0"
 psycopg2-binary = "^2.7"
 alembic = "^1.0"
+matplotlib = "^3.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.3"
