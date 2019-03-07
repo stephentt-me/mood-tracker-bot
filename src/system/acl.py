@@ -7,6 +7,7 @@ from telegram.ext import CallbackContext
 
 from src.domains.user import get_or_register_user
 
+
 def restrict_admin(func):
     @wraps(func)
     def inner(update: Bot, context: CallbackContext, *args, **kwargs):
@@ -15,7 +16,9 @@ def restrict_admin(func):
             return func(update, context, *args, **kwargs)
         logging.info(f"A request from {user_id} not belong to owner has been denied.")
         return
+
     return inner
+
 
 def must_be_user(func):
     @wraps(func)
@@ -23,4 +26,5 @@ def must_be_user(func):
         user = update.effective_user
         get_or_register_user(user)
         return func(update, context, *args, **kwargs)
+
     return inner
