@@ -24,6 +24,7 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+from src.models import *
 from src.models.base import Base
 target_metadata = Base.metadata
 
